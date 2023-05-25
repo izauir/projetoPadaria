@@ -1,0 +1,690 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "PADOCA",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/funcionario": {
+      "get": {
+        "tags": [
+          "Funcionário"
+        ],
+        "description": "Endpoint (procedure) para obter todos os funcionarios.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Funcionário"
+        ],
+        "description": "Endpoint para cadastrar um usuário.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de Funcionário",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nivelAcesso": {
+                  "type": "string",
+                  "example": "master"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Izauir Guilherme Bernardo dos Santos"
+                },
+                "sexo": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "cargo": {
+                  "type": "string",
+                  "example": "Programador"
+                },
+                "nascimento": {
+                  "type": "string",
+                  "example": "1999-09-18"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(11)97369-9232"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "izauirguilherme@hotmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/funcionario/cargos": {
+      "get": {
+        "tags": [
+          "Funcionário"
+        ],
+        "description": "View para obter todos cargos dos funcionarios.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/funcionario/cargos-anteriores": {
+      "get": {
+        "tags": [
+          "Funcionário"
+        ],
+        "description": "Endpoint para obter todos cargos anteriores dos funcionarios.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/funcionario/{id}": {
+      "put": {
+        "tags": [
+          "Funcionário"
+        ],
+        "description": "Endpoint para atualizar o Funcionário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "User ID."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de Funcionário",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nivelAcesso": {
+                  "type": "string",
+                  "example": "master"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Izauir Guilherme Bernardo dos Santos"
+                },
+                "sexo": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "cargo": {
+                  "type": "string",
+                  "example": "Programador"
+                },
+                "nascimento": {
+                  "type": "string",
+                  "example": "1999-09-18"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(11)97369-9232"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "izauirguilherme@hotmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Funcionário"
+        ],
+        "description": "Endpoint para atualizar apenas o cargo do Funcionário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto com o cargo desejado",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cargo": {
+                  "type": "string",
+                  "example": "Streamer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/estoque": {
+      "get": {
+        "tags": [
+          "Estoque"
+        ],
+        "description": "Endpoint (procedure) para obter todos os produtos no estoques da padaria.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Estoque"
+        ],
+        "description": "Endpoint para cadastrar um produto no estoque.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de Estoque",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idProduto": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 100
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/estoque/{id}": {
+      "get": {
+        "tags": [
+          "Estoque"
+        ],
+        "description": "Endpoint trazer apenas um produto por id no Estoque.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "in": "params",
+          "required": true
+        }
+      },
+      "put": {
+        "tags": [
+          "Estoque"
+        ],
+        "description": "Endpoint para atualizar um produto do Estoque.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de Estoque",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idProduto": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 100
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/log-funcionario": {
+      "get": {
+        "tags": [
+          "Log Funcionario"
+        ],
+        "description": "Endpoint para trazer o histórico dos funcionários.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/produto": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "Endpoint (procedure) para obter todos os produtos da padaria.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "Endpoint para cadastrar um produto.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de Produto",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Coca-cola Lata 350 ml."
+                },
+                "marca": {
+                  "type": "string",
+                  "example": "Coca"
+                },
+                "precoVenda": {
+                  "type": "number",
+                  "example": 2.8
+                },
+                "bitAtivo": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/produto/estoque": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "View para trazer a quantidade de produtos no estoque.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/produto/menor-preco": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "Function para obter o produto com o menor preço da padaria.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/produto/maior-preco": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "Function para obter o produto com o maior preço da padaria.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/produto/id-novo-produto": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "Function para trazer o último produto adicionado.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/produto/{id}": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "Endpoint para trazer um produto pelo id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Produto"
+        ],
+        "description": "Endpoint para atualizar um Produto.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de Produto",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Coca-cola Lata 350 ml."
+                },
+                "marca": {
+                  "type": "string",
+                  "example": "Coca"
+                },
+                "precoVenda": {
+                  "type": "number",
+                  "example": 2.8
+                },
+                "bitAtivo": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/venda": {
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "description": "Endpoint para obter todos os vendas da padaria.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Venda"
+        ],
+        "description": "Endpoint para realizar uma venda.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de venda",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idProduto": {
+                  "type": "number",
+                  "example": 1
+                },
+                "valor": {
+                  "type": "number",
+                  "example": 3.5
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 2
+                },
+                "data": {
+                  "type": "string",
+                  "example": "2022-12-05"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/venda/historico": {
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "description": "View para obter nome, marca e quantidade desses produtos vendidos.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/venda/{id}": {
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "description": "Endpoint para trazer a venda pelo id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Venda"
+        ],
+        "description": "Endpoint para atualizar uma venda.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Objeto para criação de venda",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idProduto": {
+                  "type": "number",
+                  "example": 1
+                },
+                "valor": {
+                  "type": "number",
+                  "example": 3.5
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 2
+                },
+                "data": {
+                  "type": "string",
+                  "example": "2022-12-05"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}
